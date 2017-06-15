@@ -22,6 +22,10 @@ There is also the normalize.css file in the vendor folder (v5.0.0)
 
 There is just a main.js file and the main.min.js file
 
+## other files
+
+There is also a .htaccess, which contains the 6G Firewall setup
+
 ## SPECS
 
 - For LESS : Any LESS stuff so the style.less could minify and compile into the style.css
