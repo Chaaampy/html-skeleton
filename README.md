@@ -24,7 +24,7 @@ There is just a main.js file and the main.min.js file
 
 ## other files
 
-There is also a .htaccess, which contains the 6G Firewall setup
+There is also a .htaccess, which contains the 6G Firewall setup, and a sample PNG favicon
 
 ## SPECS
 
