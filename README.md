@@ -20,7 +20,7 @@ There is also the normalize.css file in the vendor folder (v5.0.0)
 
 ## JS files
 
-There is just a main.js file and the main.min.js file
+There is just a main.js file and the main.min.js file and the jquery-3.2.1.min.js in the vendor folder
 
 ## other files
 
