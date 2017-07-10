@@ -14,7 +14,7 @@ It also includes a 404.html basic file
 
 The CSS folder includes several CSS files
 
-The main file is style.less and style.css (which is basically the less minified and compiled file). It also contains a var.less which is already imported in the style.less
+The main file is style.less and style.min.css (which is basically the less minified and compiled file). It also contains a var.less which is already imported in the style.less
 
 There is also the normalize.css file in the vendor folder (v5.0.0)
 
@@ -28,5 +28,5 @@ There is just a sample PNG favicon
 
 ## SPECS
 
-- For LESS : Any LESS stuff so the style.less could minify and compile into the style.css
+- For LESS : Any LESS stuff so the style.less could minify and compile into the style.min.css
 - For the JS : Any minifier stuff so the main.js could minify correctly into the main.min.js
