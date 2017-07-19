@@ -6,7 +6,7 @@
 
 This repo contains two html files
 
-The main file is index.html, it includes a basic HTML5 webapp skeleton, it contains the head with metas, body with some basic markup, and CSS/JS files includes
+The main file is index.html, it includes a basic HTML5 webapp skeleton, it contains the head with metas, body with some basic markup (header, main, section, footer etc), and CSS/JS files includes
 
 It also includes a 404.html basic file
 
@@ -17,6 +17,8 @@ The CSS folder includes several CSS files
 The main file is style.less and style.min.css (which is basically the less minified and compiled file). It also contains a var.less which is already imported in the style.less
 
 There is also the normalize.css file in the vendor folder (v5.0.0)
+
+If you don't want to build with LESS, just replace the <link rel="stylesheet"  href="css/style.min.css"> line in the <head> by <link rel="stylesheet"  href="css/style.css"> and feel free to work on the style.css file (and to delete LESS and .min CSS stuff)
 
 ## JS files
 
