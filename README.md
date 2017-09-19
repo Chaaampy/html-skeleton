@@ -16,9 +16,9 @@ The CSS folder includes several CSS files
 
 The main file is style.less and style.min.css (which is basically the less minified and compiled file). It also contains a var.less which is already imported in the style.less
 
-There is also the normalize.css file in the vendor folder (v5.0.0)
+There is also the normalize.css file in the vendor folder (v7.0.0)
 
-If you don't want to build with LESS, just replace the <link rel="stylesheet"  href="css/style.min.css"> line in the <head> by <link rel="stylesheet"  href="css/style.css"> and feel free to work on the style.css file (and to delete LESS and .min CSS stuff)
+If you don't want to build with LESS, just replace the <link rel="stylesheet"  href="css/style.min.css"> line in the <head> by <link rel="stylesheet"  href="css/style.css">, then copy the content of the other CSS files and feel free to work on the style.css file (and to delete LESS and .min CSS stuff)
 
 ## JS files
 
