@@ -1,65 +1,8 @@
 // out: style.min.css, sourcemap: true, compress: true
 
-//  1 - VAR
-//  2 - CUSTOM CSS
-//      2.1 - GENERAL
-//      2.2 - HEADER
-//      2.3 - MAIN
-//      2.4 - FOOTER
-//      2.5 - RESPONSIVE
-//      2.6 - ANIMATIONS
-
-// 1 - VAR
-
 @import url(var.less);
-
-
-// 2 - CUSTOM CSS
-
-// 2.1 - GENERAL
-
-html {
-    font-size: 100%;
-}
-
-body {
-    
-}
-
-// 2.2 - HEADER
-
-header {
-    
-}
-
-// 2.3 - MAIN
-
-main {
-    
-}
-
-// 2.4 - FOOTER
-
-footer {
-    
-}
-
-// 2.5 - RESPONSIVE
-
-@media (max-width:600px) {
-
-}
-
-@media (max-width:900px) {
-    
-}
-
-@media (max-width:1200px) {
-
-}
-
-@media (max-width:1800px) {
-
-}
-
-// 2.6 - ANIMATIONS
+@import url(common.less);
+@import url(header.less);
+@import url(main.less);
+@import url(footer.less);
+@import url(responsive.less);
