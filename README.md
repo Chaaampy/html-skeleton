@@ -1,6 +1,6 @@
 # html skeleton
 ## html skeleton is just a pre-build webapp skeleton (you don't say !)
-## Start an app, from scratch, with a clean markup !
+###### Start an app, from scratch, with a clean markup !
 ###### Feel free to use / customize it / suggest some improvements
 
 ## HTML files
