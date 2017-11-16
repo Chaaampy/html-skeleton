@@ -27,7 +27,7 @@ There is just a main.js file and the main.min.js file and the jquery-3.2.1.min.j
 
 ## other files
 
-There is just a sample PNG favicon
+There is just a sample PNG favicon in the favicon file. Note that you should generate your own favicon with some service like [favicon-generator](https://www.favicon-generator.org/)
 
 ## SPECS
 
