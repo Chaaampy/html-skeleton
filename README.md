@@ -31,5 +31,7 @@ There is just a sample PNG favicon in the favicon file. Note that you should gen
 
 ## SPECS
 
-- For LESS : Any LESS stuff so the style.less could minify and compile into the style.min.css
-- For the JS : Any minifier stuff so the main.js could minify correctly into the main.min.js
+- For LESS : Any LESS stuff so the style.less could minify and compile into the style.min.css (IDE plugin or some task runner)
+- For the JS : Any minifier stuff so the main.js could minify correctly into the main.min.js (same as above)
+
+Please notre that you can work on your own workflow (SCSS, Stylus), with Gulp, Grunt etc. Feel free to fork and build your own html webapp skeleton !
