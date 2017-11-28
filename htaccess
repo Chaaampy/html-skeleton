@@ -1,0 +1,10 @@
+ErrorDocument 400 http://www.example.com/400.html
+ErrorDocument 401 http://www.example.com/401.html
+ErrorDocument 403 http://www.example.com/403.html
+ErrorDocument 404 http://www.example.com/404.html
+ErrorDocument 500 http://www.example.com/500.html
+ErrorDocument 501 http://www.example.com/501.html
+ErrorDocument 502 http://www.example.com/502.html
+ErrorDocument 503 http://www.example.com/503.html
+ErrorDocument 504 http://www.example.com/504.html
+ErrorDocument 505 http://www.example.com/505.html
