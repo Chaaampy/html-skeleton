@@ -27,6 +27,8 @@ There is just a main.js file and the main.min.js file and the jquery-3.2.1.min.j
 
 ## htaccess
 
+This file contains the most common 4xx and 5xx erros redirections, some compressions / caching / proxy stuffs and the [6G Firewall](https://perishablepress.com/6g/)
+
 Please note that you should rename this file into .htaccess
 
 ## other files
