@@ -1,11 +1,11 @@
 # html skeleton
-## html skeleton is just a pre-build webapp skeleton (you don't say !)
+## This is just a pre-build webapp skeleton (you don't say !)
 ###### Start an app, from scratch, with a clean markup !
 ###### Feel free to use / customize it / suggest some improvements
 
 ## HTML files
 
-This repo contains two html files
+This repo contains several html files
 
 The main file is index.html, it includes a basic HTML5 webapp skeleton, it contains the head with metas, body with some basic markup (header, main, section, footer etc), and CSS/JS files includes
 
