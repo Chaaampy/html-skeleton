@@ -9,7 +9,7 @@ This repo contains two html files
 
 The main file is index.html, it includes a basic HTML5 webapp skeleton, it contains the head with metas, body with some basic markup (header, main, section, footer etc), and CSS/JS files includes
 
-It also includes a 404.html basic file
+It also includes some 4xx and 5xx error files
 
 ## CSS files
 
