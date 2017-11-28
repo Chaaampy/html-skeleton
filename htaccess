@@ -1,10 +1,128 @@
-ErrorDocument 400 http://www.example.com/400.html
-ErrorDocument 401 http://www.example.com/401.html
-ErrorDocument 403 http://www.example.com/403.html
-ErrorDocument 404 http://www.example.com/404.html
-ErrorDocument 500 http://www.example.com/500.html
-ErrorDocument 501 http://www.example.com/501.html
-ErrorDocument 502 http://www.example.com/502.html
-ErrorDocument 503 http://www.example.com/503.html
-ErrorDocument 504 http://www.example.com/504.html
-ErrorDocument 505 http://www.example.com/505.html
+# errors redirection
+
+ErrorDocument 400 pages/err/400.html
+ErrorDocument 401 pages/err/401.html
+ErrorDocument 403 pages/err/403.html
+ErrorDocument 404 pages/err/404.html
+ErrorDocument 500 pages/err/500.html
+ErrorDocument 501 pages/err/501.html
+ErrorDocument 502 pages/err/502.html
+ErrorDocument 503 pages/err/503.html
+ErrorDocument 504 pages/err/504.html
+ErrorDocument 505 pages/err/505.html
+
+# compression with MOD_DEFLATE
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/atom+xml application/rss+xml application/xml application/javascript
+
+# proxys stuff
+Header append Vary User-Agent env=!dont-vary
+
+<IfModule mod_headers.c>
+  # Mise en cache des images et autres fichier statiques pour un mois
+  <FilesMatch ".(ico|jpe?g|png|css|js)$">
+   Header set Cache-Control "max-age=2592000"
+  </FilesMatch>
+
+  # Mise en cache du html et xml pour 12 heures
+  <filesMatch ".(html|htm|xml)$">
+   Header set Cache-Control "max-age=43200"
+  </filesMatch>
+
+  # Désactive la mise en cache pour les fichier PHP et CGI
+  <FilesMatch ".(php|cgi)$">
+   Header unset Cache-Control
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 7200 seconds"
+  AddType image/x-icon .ico
+  AddType application/x-font-woff .woff
+  AddType application/x-font-woff2 .woff2
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/ico "access plus 1 year"
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/icon "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType text/html "access plus 7200 seconds"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType application/xhtml+xml "access plus 7200 seconds"
+  ExpiresByType application/x-javascript "access plus 1 year"
+  ExpiresByType application/x-shockwave-flash "access plus 1 year"
+  ExpiresByType application/x-font-woff "access plus 1 year"
+  ExpiresByType application/x-font-woff2 "access plus 1 year"
+</IfModule>
+
+# 6G FIREWALL/BLACKLIST
+# @ https://perishablepress.com/6g/
+
+# 6G:[QUERY STRINGS]
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteCond %{QUERY_STRING} (eval\() [NC,OR]
+	RewriteCond %{QUERY_STRING} (127\.0\.0\.1) [NC,OR]
+	RewriteCond %{QUERY_STRING} ([a-z0-9]{2000}) [NC,OR]
+	RewriteCond %{QUERY_STRING} (javascript:)(.*)(;) [NC,OR]
+	RewriteCond %{QUERY_STRING} (base64_encode)(.*)(\() [NC,OR]
+	RewriteCond %{QUERY_STRING} (GLOBALS|REQUEST)(=|\[|%) [NC,OR]
+	RewriteCond %{QUERY_STRING} (<|%3C)(.*)script(.*)(>|%3) [NC,OR]
+	RewriteCond %{QUERY_STRING} (\\|\.\.\.|\.\./|~|`|<|>|\|) [NC,OR]
+	RewriteCond %{QUERY_STRING} (boot\.ini|etc/passwd|self/environ) [NC,OR]
+	RewriteCond %{QUERY_STRING} (thumbs?(_editor|open)?|tim(thumb)?)\.php [NC,OR]
+	RewriteCond %{QUERY_STRING} (\'|\")(.*)(drop|insert|md5|select|union) [NC]
+	RewriteRule .* - [F]
+</IfModule>
+
+# 6G Firewall init
+
+# 6G:[REQUEST METHOD]
+<IfModule mod_rewrite.c>
+	RewriteCond %{REQUEST_METHOD} ^(connect|debug|delete|move|put|trace|track) [NC]
+	RewriteRule .* - [F]
+</IfModule>
+
+# 6G:[REFERRERS]
+<IfModule mod_rewrite.c>
+	RewriteCond %{HTTP_REFERER} ([a-z0-9]{2000}) [NC,OR]
+	RewriteCond %{HTTP_REFERER} (semalt.com|todaperfeita) [NC]
+	RewriteRule .* - [F]
+</IfModule>
+
+# 6G:[REQUEST STRINGS]
+<IfModule mod_alias.c>
+	RedirectMatch 403 (?i)([a-z0-9]{2000})
+	RedirectMatch 403 (?i)(https?|ftp|php):/
+	RedirectMatch 403 (?i)(base64_encode)(.*)(\()
+	RedirectMatch 403 (?i)(=\\\'|=\\%27|/\\\'/?)\.
+	RedirectMatch 403 (?i)/(\$(\&)?|\*|\"|\.|,|&|&amp;?)/?$
+	RedirectMatch 403 (?i)(\{0\}|\(/\(|\.\.\.|\+\+\+|\\\"\\\")
+	RedirectMatch 403 (?i)(~|`|<|>|:|;|,|%|\\|\s|\{|\}|\[|\]|\|)
+	RedirectMatch 403 (?i)/(=|\$&|_mm|cgi-|etc/passwd|muieblack)
+	RedirectMatch 403 (?i)(&pws=0|_vti_|\(null\)|\{\$itemURL\}|echo(.*)kae|etc/passwd|eval\(|self/environ)
+	RedirectMatch 403 (?i)\.(aspx?|bash|bak?|cfg|cgi|dll|exe|git|hg|ini|jsp|log|mdb|out|sql|svn|swp|tar|rar|rdf)$
+	RedirectMatch 403 (?i)/(^$|(wp-)?config|mobiquo|phpinfo|shell|sqlpatch|thumb|thumb_editor|thumbopen|timthumb|webshell)\.php
+</IfModule>
+
+# 6G:[USER AGENTS]
+<IfModule mod_setenvif.c>
+	SetEnvIfNoCase User-Agent ([a-z0-9]{2000}) bad_bot
+	SetEnvIfNoCase User-Agent (archive.org|binlar|casper|checkpriv|choppy|clshttp|cmsworld|diavol|dotbot|extract|feedfinder|flicky|g00g1e|harvest|heritrix|httrack|kmccrew|loader|miner|nikto|nutch|planetwork|postrank|purebot|pycurl|python|seekerspider|siclab|skygrid|sqlmap|sucker|turnit|vikspider|winhttp|xxxyy|youda|zmeu|zune) bad_bot
+	<limit GET POST PUT>
+		Order Allow,Deny
+		Allow from All
+		Deny from env=bad_bot
+	</limit>
+</IfModule>
+
+# 6G:[BAD IPS]
+<Limit GET HEAD OPTIONS POST PUT>
+	Order Allow,Deny
+	Allow from All
+	# uncomment/edit/repeat next line to block IPs
+	# Deny from 123.456.789
+</Limit>
