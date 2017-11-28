@@ -17,9 +17,11 @@ The CSS folder includes several CSS files
 
 The main file is style.less and style.min.css (which is basically the less minified and compiled file). It also contains a var.less which is already imported in the style.less
 
+Other CSS files (common, responsive, header etc) are compiled into the main style file (see the SPECS part for more informations)
+
 There is also the normalize.css file in the vendor folder (v7.0.0)
 
-If you don't want to build with LESS, just replace the <link rel="stylesheet"  href="css/style.min.css"> line in the <head> by <link rel="stylesheet"  href="css/style.css">, then copy the content of the other CSS files and feel free to work on the style.css file (and to delete LESS and .min CSS stuff)
+If you don't want to build with LESS, just replace the <link rel="stylesheet"  href="css/style.min.css"> line in the <head> by <link rel="stylesheet"  href="css/style.css">, then copy the content of the other CSS files and delete all the LESS files, then feel free to work on the style.css file (and to delete LESS and .min CSS stuff)
 
 ## JS files
 
@@ -27,7 +29,7 @@ There is just a main.js file and the main.min.js file and the jquery-3.2.1.min.j
 
 ## htaccess
 
-This file contains the most common 4xx and 5xx erros redirections, some compressions / caching / proxy stuffs and the [6G Firewall](https://perishablepress.com/6g/)
+This file contains the most common 4xx and 5xx erros redirections, some compressions / caching / proxy stuffs and the [6G Firewall](https://perishablepress.com/6g/) code
 
 Please note that you should rename this file into .htaccess
 
