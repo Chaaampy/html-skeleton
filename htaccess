@@ -18,17 +18,17 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javasc
 Header append Vary User-Agent env=!dont-vary
 
 <IfModule mod_headers.c>
-  # Mise en cache des images et autres fichier statiques pour un mois
+  # Cachiiing v1
   <FilesMatch ".(ico|jpe?g|png|css|js)$">
    Header set Cache-Control "max-age=2592000"
   </FilesMatch>
 
-  # Mise en cache du html et xml pour 12 heures
+  # Cachiiing v2
   <filesMatch ".(html|htm|xml)$">
    Header set Cache-Control "max-age=43200"
   </filesMatch>
 
-  # Désactive la mise en cache pour les fichier PHP et CGI
+  # Cachiiing v3
   <FilesMatch ".(php|cgi)$">
    Header unset Cache-Control
   </FilesMatch>
