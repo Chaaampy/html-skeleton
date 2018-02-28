@@ -1,0 +1,74 @@
+// out: null
+
+@import url(var.less);
+
+// CUSTOM
+
+// POSITION
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+.fixed {
+    position: fixed;
+}
+
+// DISPLAY
+
+.flex {
+    display: flex;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.block {
+    display: block;
+}
+
+.none {
+    display: none;
+}
+
+.flex-center {
+    .flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inline-flex-center {
+    .inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// COLORS
+
+.white {
+    color: @white;
+}
+
+.black {
+    color: @black;
+}
+
+.bg-white {
+    background-color: @white;
+}
+
+.bg-black {
+    background-color: @black;
+}
+
+// MISC
+
+.no-float {
+    float: none;
+    clear: both;
+}
